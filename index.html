@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>visite3D - Solutions de Numérisation 3D et Jumeaux Numériques</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="container">
+                <div class="nav__brand">
+                    <h2>visite3D</h2>
+                </div>
+                <ul class="nav__menu">
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#equipement">Équipement</a></li>
+                    <li><a href="#mobile">Mobile</a></li>
+                    <li><a href="#tarifs">Tarifs</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="header__content container">
+            <div class="header__text">
+                <h1>visite3D - Solutions de Numérisation 3D et Jumeaux Numériques</h1>
+                <p class="header__subtitle">Transformez votre marketing immobilier avec des visites virtuelles immersives disponibles 24h/24 et 7j/7</p>
+                <button class="btn btn--primary btn--lg" onclick="scrollToSection('services')">
+                    Découvrir nos services
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero__grid">
+                <div class="hero__content">
+                    <h2>Expériences 3D Immersives</h2>
+                    <p>Découvrez la puissance des visites virtuelles HD et des plans 3D pour révolutionner votre façon de présenter les propriétés</p>
+                    <div class="stats">
+                        <div class="stat">
+                            <span class="stat__number">+300%</span>
+                            <span class="stat__label">Engagement</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat__number">24h/24</span>
+                            <span class="stat__label">Disponible</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat__number">-50%</span>
+                            <span class="stat__label">Visites inutiles</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero__image">
+                    <img src="https://pplx-res.cloudinary.com/image/upload/v1757370906/pplx_project_search_images/131005ebf2666cdb6383c6727667a91f6018191d.png" alt="Visites virtuelles HD sur smartphones">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Principaux -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section__title">Nos Services Principaux</h2>
+            <div class="services__grid">
+                <!-- Marketing Immobilier -->
+                <div class="service__card">
+                    <div class="service__icon">🏠</div>
+                    <h3>Marketing Immobilier</h3>
+                    <p class="service__subtitle">Visites 3D Immersives 24h/24 et 7j/7</p>
+                    <div class="service__image">
+                        <img src="https://pplx-res.cloudinary.com/image/upload/v1757370907/pplx_project_search_images/9baa0453ae966b878597b65257609e567cff0383.png" alt="Vue Dollhouse 3D">
+                    </div>
+                    <div class="service__features">
+                        <h4>Fonctionnalités :</h4>
+                        <ul>
+                            <li>Interface Intuitive pour navigation 3D</li>
+                            <li>Vue Dollhouse pour perspective unique</li>
+                            <li>Plans Schématiques Professionnels automatiques</li>
+                            <li>Photos haute qualité générées automatiquement</li>
+                            <li>Partage instantané sur portails immobiliers</li>
+                            <li>Intégration Google Street View</li>
+                        </ul>
+                    </div>
+                    <div class="service__benefits">
+                        <span class="status status--success">+25% engagement</span>
+                        <span class="status status--success">Leads qualifiés</span>
+                        <span class="status status--success">-50% visites inutiles</span>
+                    </div>
+                </div>
+
+                <!-- Services Techniques -->
+                <div class="service__card">
+                    <div class="service__icon">🔧</div>
+                    <h3>Services Techniques</h3>
+                    <p class="service__subtitle">Gestion d'Opérations à Distance</p>
+                    <div class="service__image">
+                        <img src="https://pplx-res.cloudinary.com/image/upload/v1756214116/pplx_project_search_images/3fc671bb2b862a65c4b71531935814eac9512304.png" alt="Digital Twin sur site de construction">
+                    </div>
+                    <div class="service__features">
+                        <h4>Fonctionnalités :</h4>
+                        <ul>
+                            <li>Intégration AWS IoT avec données temps réel</li>
+                            <li>Surveillance QA/QC photoréaliste</li>
+                            <li>Gestion centralisée des opérations</li>
+                            <li>Jumeaux Numériques Urbains multicouches</li>
+                        </ul>
+                    </div>
+                    <div class="service__benefits">
+                        <span class="status status--success">ROI optimisé</span>
+                        <span class="status status--success">-25% coûts</span>
+                        <span class="status status--success">+45% productivité</span>
+                    </div>
+                </div>
+
+                <!-- Conception et Construction -->
+                <div class="service__card">
+                    <div class="service__icon">🏗️</div>
+                    <h3>Conception et Construction</h3>
+                    <p class="service__subtitle">Gestion de Projet Simplifiée</p>
+                    <div class="service__image">
+                        <img src="https://pplx-res.cloudinary.com/image/upload/v1754740212/pplx_project_search_images/248db78e74221dd53a5b1a1938e222a23206560f.png" alt="Évolution BIM vers Digital Twins">
+                    </div>
+                    <div class="service__features">
+                        <h4>Fonctionnalités :</h4>
+                        <ul>
+                            <li>Fichiers BIM et CAO automatiques</li>
+                            <li>Intégrations Procore et Autodesk</li>
+                            <li>Collaboration améliorée entre équipes</li>
+                            <li>Documentation précise avec nuages de points</li>
+                            <li>Modélisation 3D Architecturale avec wireframe</li>
+                        </ul>
+                    </div>
+                    <div class="service__benefits">
+                        <span class="status status--success">Respect délais/budgets</span>
+                        <span class="status status--success">-40% déplacements</span>
+                        <span class="status status--success">-25% erreurs</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Équipement Professionnel -->
+    <section id="equipement" class="equipment">
+        <div class="container">
+            <div class="equipment__grid">
+                <div class="equipment__content">
+                    <h2>📷 Équipement de Capture Professionnel</h2>
+                    <h3>Caméra Matterport Pro3</h3>
+                    <ul class="equipment__features">
+                        <li>✨ Technologie LiDAR haute précision</li>
+                        <li>🤖 Capture automatisée pour efficacité maximale</li>
+                        <li>🔗 Compatibilité universelle avec plateforme Matterport</li>
+                        <li>⚡ Interface de Scanning Temps Réel avec indicateurs de progression</li>
+                        <li>🔋 Autonomie étendue, interface intuitive</li>
+                    </ul>
+                </div>
+                <div class="equipment__specs">
+                    <div class="spec__card">
+                        <h4>Spécifications Techniques</h4>
+                        <div class="spec__list">
+                            <div class="spec__item">
+                                <span class="spec__label">Précision</span>
+                                <span class="spec__value">LiDAR</span>
+                            </div>
+                            <div class="spec__item">
+                                <span class="spec__label">Capture</span>
+                                <span class="spec__value">Automatisée</span>
+                            </div>
+                            <div class="spec__item">
+                                <span class="spec__label">Compatibilité</span>
+                                <span class="spec__value">Universelle</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Applications Mobiles -->
+    <section id="mobile" class="mobile">
+        <div class="container">
+            <h2 class="section__title">📱 Applications Mobiles - Interface Utilisateur Optimisée</h2>
+            <div class="mobile__grid">
+                <div class="mobile__images">
+                    <img src="https://pplx-res.cloudinary.com/image/upload/v1754900630/pplx_project_search_images/6cd8a41c26339c5a6df2d78cbfd2194a0f9a9362.png" alt="Interface Aventa Mobile App">
+                    <img src="https://pplx-res.cloudinary.com/image/upload/v1757370906/pplx_project_search_images/5c631108467d6c02aa5128072d9c4b101b010072.png" alt="Application mobile immobilière">
+                </div>
+                <div class="mobile__content">
+                    <h3>Fonctionnalités Mobiles</h3>
+                    <ul class="mobile__features">
+                        <li>🌐 Tours virtuels 360° intégrés</li>
+                        <li>👆 Navigation tactile intuitive</li>
+                        <li>📤 Partage social simplifié</li>
+                        <li>📍 Géolocalisation des propriétés</li>
+                        <li>🏖️ Applications Vacances & Location avec tours Matterport</li>
+                    </ul>
+                    <div class="mobile__highlight">
+                        <span class="highlight__badge">🍎 Apple</span>
+                        <p>Disponible pour plus d'un milliard d'utilisateurs Apple</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nouvelles Fonctionnalités 2025 -->
+    <section class="new-features">
+        <div class="container">
+            <h2 class="section__title">🆕 Nouvelles Fonctionnalités 2025</h2>
+            <div class="features__grid">
+                <div class="feature__card">
+                    <h3>Matterport Marketing Cloud</h3>
+                    <p>Solution tout-en-un : Photos haute résolution, visites 3D, plans d'étage et vidéos avec automatisations intégrées et analyses visiteurs</p>
+                </div>
+                <div class="feature__card">
+                    <h3>Defurnish (Outil de Démeublement)</h3>
+                    <p>Suppression virtuelle du mobilier en un clic pour libérer visuellement les espaces</p>
+                </div>
+                <div class="feature__card">
+                    <h3>Merge (Fusion d'Analyses)</h3>
+                    <p>Numérisation collaborative par équipes multiples pour un traitement accéléré des propriétés étendues</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Plans et Tarifs -->
+    <section id="tarifs" class="pricing">
+        <div class="container">
+            <h2 class="section__title">📊 Plans et Tarifs</h2>
+            <div class="pricing__table">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Plan</th>
+                            <th>Prix</th>
+                            <th>Espaces</th>
+                            <th>Actifs</th>
+                            <th>Fonctionnalités</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Gratuit</strong></td>
+                            <td>0€/mois</td>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>Essai complet, fonctions de base</td>
+                        </tr>
+                        <tr class="highlighted">
+                            <td><strong>Starter</strong></td>
+                            <td>12€/mois</td>
+                            <td>5-20</td>
+                            <td>3</td>
+                            <td>Partage, plans schématiques, Google Street View</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Professionnel</strong></td>
+                            <td>58€/mois</td>
+                            <td>20-150</td>
+                            <td>10</td>
+                            <td>Tous appareils, Property Intelligence, fichiers CAO/BIM</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Business</strong></td>
+                            <td>296€/mois</td>
+                            <td>100-300</td>
+                            <td>50</td>
+                            <td>Collaboration avancée, intégrations Autodesk</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Enterprise</strong></td>
+                            <td>Sur devis</td>
+                            <td>Personnalisé</td>
+                            <td>Personnalisé</td>
+                            <td>SSO, APIs, support dédié</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partenaires et ROI -->
+    <section class="partners">
+        <div class="container">
+            <h2 class="section__title">🤝 Partenaires et Intégrations</h2>
+            <div class="partners__grid">
+                <div class="partner__item">Autodesk Construction Cloud</div>
+                <div class="partner__item">AWS IoT TwinMaker</div>
+                <div class="partner__item">Procore</div>
+                <div class="partner__item">Apple</div>
+            </div>
+            
+            <h3 class="roi__title">Statistiques ROI Impressionnantes</h3>
+            <div class="roi__stats">
+                <div class="roi__item">
+                    <span class="roi__number">-50%</span>
+                    <span class="roi__label">Réduction visites inutiles</span>
+                </div>
+                <div class="roi__item">
+                    <span class="roi__number">+25%</span>
+                    <span class="roi__label">Engagement en ligne</span>
+                </div>
+                <div class="roi__item">
+                    <span class="roi__number">+30%</span>
+                    <span class="roi__label">Accélération cycle de vente</span>
+                </div>
+                <div class="roi__item">
+                    <span class="roi__number">-60%</span>
+                    <span class="roi__label">Temps d'intervention</span>
+                </div>
+                <div class="roi__item">
+                    <span class="roi__number">+35%</span>
+                    <span class="roi__label">Optimisation opérations</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comment Commencer -->
+    <section class="how-to-start">
+        <div class="container">
+            <h2 class="section__title">🚀 Comment Commencer</h2>
+            <div class="steps__grid">
+                <div class="step__card">
+                    <div class="step__number">1</div>
+                    <h3>Créer Jumeau Numérique</h3>
+                    <p>Utilisez votre smartphone, caméra Pro Series, ou faites appel à notre service professionnel</p>
+                </div>
+                <div class="step__card">
+                    <div class="step__number">2</div>
+                    <h3>Choisir Forfait</h3>
+                    <p>Découverte gratuite, plans de croissance, ou solution enterprise personnalisée</p>
+                </div>
+                <div class="step__card">
+                    <div class="step__number">3</div>
+                    <h3>Déployer et Intégrer</h3>
+                    <p>Configuration rapide avec formation incluse et support personnalisé</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact et Support -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section__title">📞 Contact et Support</h2>
+            <div class="contact__grid">
+                <div class="contact__info">
+                    <h3>visite3D - Votre Partenaire Local Matterport</h3>
+                    <p>Notre équipe d'experts vous accompagne dans votre transformation digitale avec des solutions sur mesure.</p>
+                    <button class="btn btn--primary">Demander une démo</button>
+                </div>
+                <div class="contact__services">
+                    <h4>Services Inclus :</h4>
+                    <ul>
+                        <li>✅ Formation complète aux outils Matterport</li>
+                        <li>🇫🇷 Support technique francophone</li>
+                        <li>📷 Capture professionnelle sur site</li>
+                        <li>🔗 Intégration avec vos systèmes existants</li>
+                        <li>🏆 Certification Matterport officielle</li>
+                        <li>💯 Garantie satisfaction client</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__brand">
+                    <h3>visite3D</h3>
+                    <p>Solutions de Numérisation 3D et Jumeaux Numériques</p>
+                </div>
+                <div class="footer__links">
+                    <div class="footer__column">
+                        <h4>Services</h4>
+                        <ul>
+                            <li><a href="#services">Marketing Immobilier</a></li>
+                            <li><a href="#services">Services Techniques</a></li>
+                            <li><a href="#services">Construction</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer__column">
+                        <h4>Support</h4>
+                        <ul>
+                            <li><a href="#contact">Contact</a></li>
+                            <li><a href="#tarifs">Tarifs</a></li>
+                            <li><a href="#" target="_blank">Documentation</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p>&copy; 2025 visite3D. Tous droits réservés. Partenaire officiel Matterport.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
