@@ -111,20 +111,18 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   // Counter animation for statistics
-  function animateCounter(element, target, duration = 2000) {
+  function animateCounter(element, target, prefix = '', suffix = '', duration = 2000) {
     let start = 0;
     const increment = target / (duration / 16);
-    
     function updateCounter() {
       start += increment;
       if (start < target) {
-        element.textContent = Math.floor(start);
+        element.textContent = `${prefix}${Math.floor(start)}${suffix}`;
         requestAnimationFrame(updateCounter);
       } else {
-        element.textContent = target;
+        element.textContent = `${prefix}${target}${suffix}`;
       }
     }
-    
     updateCounter();
   }
 
@@ -135,20 +133,15 @@ document.addEventListener('DOMContentLoaded', function() {
         const number = entry.target.querySelector('.stat__number, .hotel__stat-number');
         if (number) {
           const text = number.textContent;
-          
-          // Extract numeric value for animation
-          const match = text.match(/(\d+)/);
+          // Extraire le nombre, le préfixe et le suffixe
+          const match = text.match(/([^\d]*)([\d]+)(.*)/);
           if (match) {
-            const targetValue = parseInt(match[1]);
-            number.textContent = '0' + text.replace(/\d+/, '');
-            
+            const prefix = match[1] || '';
+            const targetValue = parseInt(match[2]);
+            const suffix = match[3] || '';
+            number.textContent = `${prefix}0${suffix}`;
             setTimeout(() => {
-              const currentText = number.textContent;
-              animateCounter({
-                textContent: (value) => {
-                  number.textContent = currentText.replace('0', value);
-                }
-              }, targetValue);
+              animateCounter(number, targetValue, prefix, suffix);
             }, 500);
           }
         }
