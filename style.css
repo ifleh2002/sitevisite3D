@@ -1063,6 +1063,8 @@ select.form-control {
   box-shadow: var(--shadow-sm);
   z-index: 1;
   position: relative;
+  margin-left: var(--space-32);
+  grid-column: 2;
 }
 
 .mobile__content h3 {
