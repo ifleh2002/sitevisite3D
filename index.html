@@ -423,7 +423,7 @@
     <!-- Comment Commencer -->
     <section class="how-to-start">
         <div class="container">
-            <h2 class="section__title">🚀 Comment Commencer</h2>
+            <h2 class="section__title">🚀 Comment ça marche</h2>
             <div class="steps__grid">
                 <div class="step__card">
                     <div class="step__number">1</div>
@@ -452,7 +452,7 @@
                 <div class="contact__info">
                     <h3>visite3D - Votre Partenaire Local Matterport</h3>
                     <p>Notre équipe d'experts vous accompagne dans votre transformation digitale avec des solutions sur mesure, spécialisée dans l'hôtellerie marocaine et les Riads traditionnels.</p>
-                    <button class="btn btn--primary">Demander une démo</button>
+                    <button class="btn btn--primary" id="call-btn">Appelez-nous</button>
                 </div>
                 <div class="contact__services">
                     <h4>Services Inclus :</h4>
@@ -501,12 +501,32 @@
                     </div>
                 </div>
             </div>
-            <div class="footer__bottom">
+            <div class="footer__bottom" id="footer-contact">
                 <p>&copy; 2025 visite3D. Tous droits réservés. Partenaire officiel Matterport.</p>
+                <p id="footer-coordonnees" style="margin-top:8px; font-weight:bold; display:none;">📞 +212661144190 &nbsp; | &nbsp; N7 ilot 14 lotissement Fadlallah . Mohammedia</p>
             </div>
         </div>
     </footer>
 
-    <script src="app.js?v=20250911"></script>
+        <script src="app.js?v=20250911"></script>
+        <script>
+            // Bouton Appelez-nous : mobile = appel, desktop = scroll footer
+            document.addEventListener('DOMContentLoaded', function() {
+                var callBtn = document.getElementById('call-btn');
+                if (callBtn) {
+                    callBtn.addEventListener('click', function(e) {
+                        if (/Mobi|Android|iPhone|iPad/i.test(navigator.userAgent)) {
+                            window.location.href = 'tel:+212661144190';
+                        } else {
+                            var coord = document.getElementById('footer-coordonnees');
+                            if (coord) {
+                                coord.style.display = 'block';
+                                coord.scrollIntoView({behavior: 'smooth'});
+                            }
+                        }
+                    });
+                }
+            });
+        </script>
 </body>
 </html>
