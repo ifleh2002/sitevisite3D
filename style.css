@@ -1056,15 +1056,16 @@ select.form-control {
 }
 
 .mobile__content {
-  background: var(--color-surface);
-  max-width: 500px;
-  padding: var(--space-24);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-sm);
-  z-index: 1;
+  background: rgba(255,255,255,0.92);
+  max-width: 480px;
+  padding: 2.5rem 2rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
+  z-index: 2;
   position: relative;
-  margin-left: var(--space-32);
+  margin-left: 3.5rem;
   grid-column: 2;
+  backdrop-filter: blur(2px);
 }
 
 .mobile__content h3 {
