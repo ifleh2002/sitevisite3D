@@ -56,6 +56,24 @@ document.addEventListener('DOMContentLoaded', function() {
     observer.observe(card);
   });
 
+  // Animate hotel cards on scroll
+  const hotelCards = document.querySelectorAll('.hotel__card');
+  hotelCards.forEach((card, index) => {
+    card.style.opacity = '0';
+    card.style.transform = 'translateY(30px)';
+    card.style.transition = `all 0.6s cubic-bezier(0.16, 1, 0.3, 1) ${index * 0.15}s`;
+    observer.observe(card);
+  });
+
+  // Animate testimonial cards on scroll
+  const testimonialCards = document.querySelectorAll('.testimonial__card');
+  testimonialCards.forEach((card, index) => {
+    card.style.opacity = '0';
+    card.style.transform = 'translateY(30px)';
+    card.style.transition = `all 0.6s cubic-bezier(0.16, 1, 0.3, 1) ${index * 0.2}s`;
+    observer.observe(card);
+  });
+
   // Animate feature cards on scroll
   const featureCards = document.querySelectorAll('.feature__card');
   featureCards.forEach(card => {
@@ -83,6 +101,15 @@ document.addEventListener('DOMContentLoaded', function() {
     observer.observe(item);
   });
 
+  // Animate hotel stats on scroll
+  const hotelStats = document.querySelectorAll('.hotel__stat');
+  hotelStats.forEach((stat, index) => {
+    stat.style.opacity = '0';
+    stat.style.transform = 'scale(0.9)';
+    stat.style.transition = `all 0.5s cubic-bezier(0.16, 1, 0.3, 1) ${index * 0.1}s`;
+    observer.observe(stat);
+  });
+
   // Counter animation for statistics
   function animateCounter(element, target, duration = 2000) {
     let start = 0;
@@ -105,23 +132,25 @@ document.addEventListener('DOMContentLoaded', function() {
   const statsObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        const number = entry.target.querySelector('.stat__number');
-        const text = number.textContent;
-        
-        // Extract numeric value for animation
-        const match = text.match(/(\d+)/);
-        if (match) {
-          const targetValue = parseInt(match[1]);
-          number.textContent = '0' + text.replace(/\d+/, '');
+        const number = entry.target.querySelector('.stat__number, .hotel__stat-number');
+        if (number) {
+          const text = number.textContent;
           
-          setTimeout(() => {
-            const currentText = number.textContent;
-            animateCounter({
-              textContent: (value) => {
-                number.textContent = currentText.replace('0', value);
-              }
-            }, targetValue);
-          }, 500);
+          // Extract numeric value for animation
+          const match = text.match(/(\d+)/);
+          if (match) {
+            const targetValue = parseInt(match[1]);
+            number.textContent = '0' + text.replace(/\d+/, '');
+            
+            setTimeout(() => {
+              const currentText = number.textContent;
+              animateCounter({
+                textContent: (value) => {
+                  number.textContent = currentText.replace('0', value);
+                }
+              }, targetValue);
+            }, 500);
+          }
         }
         
         statsObserver.unobserve(entry.target);
@@ -132,6 +161,12 @@ document.addEventListener('DOMContentLoaded', function() {
   // Observe hero stats
   const heroStats = document.querySelectorAll('.stat');
   heroStats.forEach(stat => {
+    statsObserver.observe(stat);
+  });
+
+  // Observe hotel stats
+  const hotelStatsContainer = document.querySelectorAll('.hotel__stat');
+  hotelStatsContainer.forEach(stat => {
     statsObserver.observe(stat);
   });
 
@@ -148,6 +183,38 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     }
   });
+
+  // Hotels section image hover effects
+  const hotelImages = document.querySelectorAll('.hotel__image img, .hotel__riad-detail img');
+  hotelImages.forEach(img => {
+    img.addEventListener('mouseenter', function() {
+      this.style.transform = 'scale(1.05)';
+      this.style.transition = 'transform 0.3s ease';
+    });
+    
+    img.addEventListener('mouseleave', function() {
+      this.style.transform = 'scale(1)';
+    });
+  });
+
+  // Hero image parallax effect for hotels section
+  const hotelsHeroImage = document.querySelector('.hotels-hero-image img');
+  if (hotelsHeroImage) {
+    window.addEventListener('scroll', function() {
+      const scrolled = window.pageYOffset;
+      const hotelsSection = document.querySelector('.hotels-riads');
+      
+      if (hotelsSection) {
+        const sectionTop = hotelsSection.offsetTop;
+        const sectionHeight = hotelsSection.offsetHeight;
+        
+        if (scrolled >= sectionTop - window.innerHeight && scrolled <= sectionTop + sectionHeight) {
+          const rate = (scrolled - sectionTop) * -0.2;
+          hotelsHeroImage.style.transform = `translateY(${rate}px)`;
+        }
+      }
+    });
+  }
 
   // Notification system
   function showNotification(message, type = 'info') {
@@ -257,6 +324,38 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
+  // Add hover effects to hotel cards
+  hotelCards.forEach(card => {
+    card.addEventListener('mouseenter', function() {
+      this.style.transform = 'translateY(-8px) scale(1.02)';
+    });
+    
+    card.addEventListener('mouseleave', function() {
+      if (this.style.opacity === '1') {
+        this.style.transform = 'translateY(0) scale(1)';
+      } else {
+        this.style.transform = 'translateY(30px) scale(1)';
+      }
+    });
+  });
+
+  // Add interactive effects to testimonial cards
+  testimonialCards.forEach(card => {
+    card.addEventListener('mouseenter', function() {
+      this.style.transform = 'translateY(-4px)';
+      this.style.boxShadow = 'var(--shadow-lg)';
+    });
+    
+    card.addEventListener('mouseleave', function() {
+      if (this.style.opacity === '1') {
+        this.style.transform = 'translateY(0)';
+        this.style.boxShadow = 'var(--shadow-sm)';
+      } else {
+        this.style.transform = 'translateY(30px)';
+      }
+    });
+  });
+
   // Parallax effect for hero section
   const hero = document.querySelector('.hero');
   const heroImage = document.querySelector('.hero__image');
@@ -308,6 +407,19 @@ document.addEventListener('DOMContentLoaded', function() {
     updateScrollIndicators();
   }
 
+  // Highlight hotel pricing plans on hover
+  const hotelPlanRows = document.querySelectorAll('.hotel-plan');
+  hotelPlanRows.forEach(row => {
+    row.addEventListener('mouseenter', function() {
+      this.style.transform = 'scale(1.02)';
+      this.style.transition = 'transform 0.2s ease';
+    });
+    
+    row.addEventListener('mouseleave', function() {
+      this.style.transform = 'scale(1)';
+    });
+  });
+
   // Enhanced mobile menu functionality (for future use)
   function createMobileMenu() {
     const nav = document.querySelector('.nav');
@@ -324,5 +436,141 @@ document.addEventListener('DOMContentLoaded', function() {
   window.addEventListener('resize', createMobileMenu);
   createMobileMenu();
 
-  console.log('visite3D application initialized successfully!');
+  // Add smooth reveal animation for hotels hero image
+  const hotelsHeader = document.querySelector('.hotels-header');
+  if (hotelsHeader) {
+    const hotelsObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const heroImg = entry.target.querySelector('.hotels-hero-image img');
+          if (heroImg) {
+            heroImg.style.transform = 'scale(1)';
+            heroImg.style.opacity = '1';
+          }
+          hotelsObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    // Set initial state
+    const heroImg = hotelsHeader.querySelector('.hotels-hero-image img');
+    if (heroImg) {
+      heroImg.style.transform = 'scale(0.9)';
+      heroImg.style.opacity = '0';
+      heroImg.style.transition = 'all 0.8s cubic-bezier(0.16, 1, 0.3, 1)';
+    }
+
+    hotelsObserver.observe(hotelsHeader);
+  }
+
+  // Add interactive partner items
+  const partnerItems = document.querySelectorAll('.partner__item');
+  partnerItems.forEach(item => {
+    item.addEventListener('mouseenter', function() {
+      this.style.transform = 'translateY(-2px)';
+      this.style.boxShadow = 'var(--shadow-md)';
+      this.style.transition = 'all 0.2s ease';
+    });
+    
+    item.addEventListener('mouseleave', function() {
+      this.style.transform = 'translateY(0)';
+      this.style.boxShadow = 'var(--shadow-sm)';
+    });
+  });
+
+  console.log('visite3D application with Hotels & Riads section initialized successfully!');
 });
+
+// Global function to make notification system available
+window.showNotification = function(message, type = 'info') {
+  // This function is duplicated here to make it globally accessible
+  // Remove existing notifications
+  const existingNotification = document.querySelector('.notification');
+  if (existingNotification) {
+    existingNotification.remove();
+  }
+
+  // Create notification element
+  const notification = document.createElement('div');
+  notification.className = `notification notification--${type}`;
+  notification.innerHTML = `
+    <div class="notification__content">
+      <span class="notification__message">${message}</span>
+      <button class="notification__close" onclick="this.parentElement.parentElement.remove()">×</button>
+    </div>
+  `;
+
+  // Add styles for notification
+  notification.style.cssText = `
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-base);
+    padding: var(--space-16);
+    box-shadow: var(--shadow-lg);
+    z-index: 1000;
+    max-width: 400px;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  `;
+
+  const content = notification.querySelector('.notification__content');
+  content.style.cssText = `
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-16);
+  `;
+
+  const message_el = notification.querySelector('.notification__message');
+  message_el.style.cssText = `
+    color: var(--color-text);
+    font-size: var(--font-size-sm);
+    line-height: var(--line-height-normal);
+  `;
+
+  const closeBtn = notification.querySelector('.notification__close');
+  closeBtn.style.cssText = `
+    background: none;
+    border: none;
+    font-size: var(--font-size-lg);
+    color: var(--color-text-secondary);
+    cursor: pointer;
+    padding: 0;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  `;
+
+  // Add type-specific styling
+  if (type === 'success') {
+    notification.style.borderLeftColor = 'var(--color-success)';
+    notification.style.borderLeftWidth = '4px';
+  }
+
+  document.body.appendChild(notification);
+
+  // Animate in
+  requestAnimationFrame(() => {
+    notification.style.opacity = '1';
+    notification.style.transform = 'translateX(0)';
+  });
+
+  // Auto remove after 5 seconds
+  setTimeout(() => {
+    if (notification.parentNode) {
+      notification.style.opacity = '0';
+      notification.style.transform = 'translateX(100%)';
+      setTimeout(() => {
+        if (notification.parentNode) {
+          notification.remove();
+        }
+      }, 300);
+    }
+  }, 5000);
+};
