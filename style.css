@@ -1055,6 +1055,16 @@ select.form-control {
   box-shadow: var(--shadow-md);
 }
 
+.mobile__content {
+  background: var(--color-surface);
+  max-width: 500px;
+  padding: var(--space-24);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  z-index: 1;
+  position: relative;
+}
+
 .mobile__content h3 {
   color: var(--color-text);
   margin-bottom: var(--space-16);
